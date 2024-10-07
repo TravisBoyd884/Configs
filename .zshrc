@@ -1,6 +1,7 @@
 alias cfnvim='nvim ~/.config/nvim'
 alias general_python="source ~/venvs/general_env/bin/activate"
-alias config='/usr/bin/git --git-dir=$HOME/.myconf/ --work-tree=$HOME'
+alias confighome='/usr/bin/git --git-dir=$HOME/.myconf/ --work-tree=$HOME'
+alias config='/usr/bin/git --git-dir=$HOME/.myconf/ --work-tree=$HOME/.config'
 
 cmakecompile() {
     if [ -z "$1" ]; then
