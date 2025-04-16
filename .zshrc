@@ -1,8 +1,11 @@
-. "$HOME/.asdf/asdf.sh"
 alias cfnvim='nvim ~/.config/nvim'
 alias general_python="source ~/.venv/general_env/bin/activate"
 alias confighome='/usr/bin/git --git-dir=$HOME/.myconf/ --work-tree=$HOME'
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+alias tordownloads='cd /home/travis/.local/share/torbrowser/tbb/x86_64/tor-browser/Browser/Downloads'
+alias t='/usr/bin/tmux'
+alias sl='/usr/bin/ls'
+alias notes='nvim ~/Notes/index.norg'
 
 cmakecompile() {
     if [ -z "$1" ]; then
@@ -17,6 +20,8 @@ cmakecompile() {
 path+=("$HOME/.local/bin")
 path+=("/usr/share")
 path+=("$HOME/.ssh")
+path+=("$HOME/qemu/build")
+path+=("$HOME/travis/xv6-riscv")
 # path+=("/usr/local/texlive/2024/bin/x86_64-linux")
 export PATH
 
@@ -26,6 +31,9 @@ export MANWIDTH=999
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
+
+# fzf options
+export FZF_DEFAULT_OPTS="--bind 'esc:cancel' --bind 'ctrl-c:cancel' --bind 'ctrl-k:up' --bind 'ctrl-j:down'"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -90,9 +98,7 @@ ZSH_THEME="robbyrussell"
 
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
-# Custom plugins may be added to $ZSH_CUSTOM/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
+# Custom plugins may be added to $ZSH_CUSTOM/plugins/ Example format: plugins=(rails git textmate ruby lighthouse) Add wisely, as too many plugins slow down shell startup.
 plugins=(git vi-mode)
 
 source $ZSH/oh-my-zsh.sh
@@ -141,3 +147,11 @@ export NVM_DIR="$HOME/.nvm"
 # Load fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 alias sd="cd ~ && cd \$(find * -type d | fzf)"
+
+# pnpm
+export PNPM_HOME="/home/travis/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end

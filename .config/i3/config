@@ -34,6 +34,9 @@ floating_modifier Mod4
 # or left-clicking anywhere into the window while holding the floating modifier.
 tiling_drag modifier titlebar
 
+# start blueman-manager
+bindsym Mod4+b exec blueman-manager 
+
 # start a firefox 
 bindsym Mod4+p exec firefox 
 

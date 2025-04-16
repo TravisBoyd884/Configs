@@ -17,11 +17,10 @@ vim.o.foldcolumn = "1"
 vim.o.colorcolumn = "90"
 
 -- Enable filetype plugins
-vim.cmd('filetype plugin on')
+vim.cmd("filetype plugin on")
 
 -- Enable syntax highlighting
-vim.opt.syntax = 'on'
-
+vim.opt.syntax = "on"
 
 -- Automatically load view when opening file
 vim.api.nvim_create_autocmd("BufWinEnter", {
